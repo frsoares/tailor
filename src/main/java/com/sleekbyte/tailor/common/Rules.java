@@ -21,6 +21,7 @@ import com.sleekbyte.tailor.listeners.whitespace.CommaWhitespaceListener;
 import com.sleekbyte.tailor.listeners.whitespace.CommentWhitespaceListener;
 import com.sleekbyte.tailor.listeners.whitespace.OperatorWhitespaceListener;
 import com.sleekbyte.tailor.listeners.whitespace.ParenthesisWhitespaceListener;
+import com.sleekbyte.tailor.listeners.FPMetricsListener;
 
 /**
  * Enum for all rules implemented in Tailor.
@@ -56,7 +57,8 @@ public enum Rules {
     TODO_SYNTAX,
     TRAILING_CLOSURE,
     TRAILING_WHITESPACE,
-    UPPER_CAMEL_CASE;
+    UPPER_CAMEL_CASE,
+    FUNCTIONAL_METRICS;
 
     private static final String BASE_STYLE_GUIDE_LINK = "https://github.com/sleekbyte/tailor/wiki/Rules#";
     public static final int REMEDIATION_POINTS = 50000;
@@ -295,5 +297,11 @@ public enum Rules {
         UPPER_CAMEL_CASE.examples = RuleExamples.get(UPPER_CAMEL_CASE.name);
         UPPER_CAMEL_CASE.className = UpperCamelCaseListener.class.getName();
         UPPER_CAMEL_CASE.category = RuleCategory.STYLE;
+
+        FUNCTIONAL_METRICS.name = "functional-metrics";
+        FUNCTIONAL_METRICS.description = "Collects metrics related to usage of functional programming";
+        FUNCTIONAL_METRICS.examples = RuleExamples.get(FUNCTIONAL_METRICS.name);
+        FUNCTIONAL_METRICS.className = FPMetricsListener.class.getName();
+        FUNCTIONAL_METRICS.category = RuleCategory.COMPLEXITY;
     }
 }

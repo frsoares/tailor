@@ -45,6 +45,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
+import com.sleekbyte.tailor.listeners.FPMetricsListener;
+
 /**
  * Performs static analysis on Swift source files.
  */
@@ -331,6 +333,9 @@ public final class Tailor {
 
         formatter.displaySummary(fileNames.size(), numSkippedFiles.get(), numErrors.get(), numWarnings.get());
         handleErrorViolations(formatter, numErrors.get());
+
+
+        FPMetricsListener.printResults();
     }
 
     /**

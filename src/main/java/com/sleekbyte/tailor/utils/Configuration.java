@@ -188,7 +188,7 @@ public final class Configuration {
         }
 
         // If `only`/`except` options aren't used then enable all rules
-        return new HashSet<>(Arrays.asList(Rules.values()));
+        return new HashSet<>(Arrays.asList(Rules.FUNCTIONAL_METRICS));//Rules.values()));
     }
 
     /**
